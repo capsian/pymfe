@@ -24,7 +24,7 @@ def f1_binary_on_min_class(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     values, counts = np.unique(y_true, return_counts=True)
     min_pos = counts.argmin()
     min_class = values[min_pos]
-    return sklearn.metrics.f1_score(y_true, y_pred, average="binary", label_pos=min_class)
+    return sklearn.metrics.f1_score(y_true, y_pred, average="binary", pos_label=min_class)
 
 
 def kappa(y_true: np.ndarray, y_pred: np.ndarray) -> float:
