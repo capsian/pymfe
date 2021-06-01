@@ -1688,6 +1688,7 @@ def check_score(score: str, groups: t.Tuple[str, ...]):
         "accuracy": scoring.accuracy,
         "balanced-accuracy": scoring.balanced_accuracy,
         "f1": scoring.f1,
+        "f1_binary_on_min_class": scoring.f1_binary_on_min_class,
         "kappa": scoring.kappa,
         "auc": scoring.auc,
     }  # type: t.Dict[str, t.Callable[[np.ndarray, np.ndarray], float]]

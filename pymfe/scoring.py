@@ -18,6 +18,15 @@ def f1(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     return sklearn.metrics.f1_score(y_true, y_pred, average="weighted")
 
 
+def f1_binary_on_min_class(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """Calculates the F1-score of a classification model. Using average:binary on min class"""
+
+    values, counts = np.unique(y_true, return_counts=True)
+    min_pos = counts.argmin()
+    min_class = values[min_pos]
+    return sklearn.metrics.f1_score(y_true, y_pred, average="binary", label_pos=min_class)
+
+
 def kappa(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     """Calculates the Kappa-score of a classification model."""
     raise NotImplementedError('The "kappa" score was not implemented.')
